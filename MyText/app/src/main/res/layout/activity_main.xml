@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.example.mytext.DataBase"/>
+        <import type="com.example.mytext.MainActivity.Updata"/>
+        <variable
+            name="database"
+            type="DataBase" />
+        <variable
+            name="updata"
+            type="Updata" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名"
+            android:textSize="20dp"
+            android:layout_gravity="left"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{database.usename}"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="密码"
+            android:textSize="20dp"
+            android:layout_gravity="left"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{database.password}"
+            android:textSize="30dp"
+            android:layout_gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:afterTextChanged="@{updata.changeUsername}"
+            android:layout_gravity="center"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{updata.changePassword}"
+            android:textSize="30dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+</layout>
